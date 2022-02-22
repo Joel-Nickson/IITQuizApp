@@ -1,4 +1,7 @@
 <!-- Multiple Choice Question -->
-<div class="time">time : {{this.questionSet.time}}</div>
-<div class="quest">question : {{this.questionSet.question}}</div>
-<div class="ans ans-choice">answer_choices : {{this.questionSet.answer_choices}}</div>
+<div class="quest"> {{this.questionSet.question}}</div>
+<div class="ans">
+    <div class="ans-choice" *ngFor="let ans of this.questionSet.answer_choices; index as i">
+        <div> {{getFromCharCode(i)}}) {{ans}} </div>
+    </div>
+</div>

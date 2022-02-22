@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { QuestionSet } from '../questions';
+import { QuestionSet, getFromCharCode } from '../questions';
 
 @Component({
   selector: 'app-mcq',
@@ -8,6 +8,7 @@ import { QuestionSet } from '../questions';
 })
 export class McqComponent implements OnInit {
 
+  getFromCharCode = getFromCharCode
   @Input() questionSet!: QuestionSet;
   constructor() { }
 
