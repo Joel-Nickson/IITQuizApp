@@ -12,6 +12,7 @@ import { MaqComponent } from './maq/maq.component';
 import { McqComponent } from './mcq/mcq.component';
 import { MtfComponent } from './mtf/mtf.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import { MtfComponent } from './mtf/mtf.component';
     Fitb2Component,
     MaqComponent,
     McqComponent,
-    MtfComponent
+    MtfComponent,
   ],
   imports: [
     BrowserModule,
