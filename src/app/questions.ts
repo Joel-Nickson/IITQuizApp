@@ -4,8 +4,8 @@ export interface Question {
     time: number,
     answers?: string[],
     answer?: string,
-    // answer_choices: [],
-    // answer_options: [],
+    answer_choices?: string[],
+    answer_options?: object[],
     [key: string]: any
 }
 

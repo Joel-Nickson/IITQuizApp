@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Question } from '../questions';
 
 @Component({
   selector: 'app-maq',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaqComponent implements OnInit {
 
+  @Input() question!: Question;
   constructor() { }
 
   ngOnInit(): void {

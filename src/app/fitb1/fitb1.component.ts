@@ -14,7 +14,4 @@ export class FITB1Component implements OnInit {
   ngOnInit(): void {
   }
 
-  share() {
-    window.alert(this.question.question);
-  }
 }

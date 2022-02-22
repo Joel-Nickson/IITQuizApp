@@ -8,16 +8,16 @@
             </app-fitb1>
         </div>
         <div *ngSwitchCase="'FITB2'">
-            <app-fitb2></app-fitb2>
+            <app-fitb2 [question]="question"></app-fitb2>
         </div>
         <div *ngSwitchCase="'MAQ'">
-            <app-maq></app-maq>
+            <app-maq [question]="question"></app-maq>
         </div>
         <div *ngSwitchCase="'MCQ'">
-            <app-mcq></app-mcq>
+            <app-mcq [question]="question"></app-mcq>
         </div>
         <div *ngSwitchCase="'MTF'">
-            <app-mtf></app-mtf>
+            <app-mtf [question]="question"></app-mtf>
         </div>
         <div *ngSwitchDefault>
             There is no implementation for that type of question yet.
