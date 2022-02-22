@@ -1,20 +1,27 @@
-<div *ngFor="let questionSet of questionsSet">
-    <h3>{{questionSet?.type}}</h3>
-    <div [ngSwitch]="questionSet?.type">
+<div class="q-set" *ngFor="let questionSet of questionsSet; index as i">
+    <h3 class="q-head">
+        <span class="q-no">Q{{i+1}} </span>
+        <span class="q-type"> {{questionSet?.type}}</span>
+    </h3>
+    <div class="q-component" [ngSwitch]="questionSet?.type">
         <div *ngSwitchCase="'FITB1'">
-            <app-fitb1 [questionSet]="questionSet">
-            </app-fitb1>
+            <div class="time">time : {{this.questionSet.time}}s</div>
+            <app-fitb1 [questionSet]="questionSet"></app-fitb1>
         </div>
         <div *ngSwitchCase="'FITB2'">
+            <div class="time">time : {{this.questionSet.time}}s</div>
             <app-fitb2 [questionSet]="questionSet"></app-fitb2>
         </div>
         <div *ngSwitchCase="'MAQ'">
+            <div class="time">time : {{this.questionSet.time}}s</div>
             <app-maq [questionSet]="questionSet"></app-maq>
         </div>
         <div *ngSwitchCase="'MCQ'">
+            <div class="time">time : {{this.questionSet.time}}s</div>
             <app-mcq [questionSet]="questionSet"></app-mcq>
         </div>
         <div *ngSwitchCase="'MTF'">
+            <div class="time">time : {{this.questionSet.time}}s</div>
             <app-mtf [questionSet]="questionSet"></app-mtf>
         </div>
         <div *ngSwitchDefault>

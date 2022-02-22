@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { questionsSet } from '../questions';
+import { questionsSet, getFromCharCode } from '../questions';
 
 @Component({
   selector: 'app-question-list',
@@ -8,6 +8,7 @@ import { questionsSet } from '../questions';
 })
 export class QuestionListComponent implements OnInit {
   questionsSet = questionsSet;
+  getFromCharCode = getFromCharCode;
   constructor() { }
 
   ngOnInit(): void {
