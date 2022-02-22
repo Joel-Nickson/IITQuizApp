@@ -2,8 +2,8 @@ export interface Questions {
     question: string,
     type: string,
     time: number,
-    answer_choices: [],
     answers: [],
+    answer_choices: [],
     answer_options: []
 }
 

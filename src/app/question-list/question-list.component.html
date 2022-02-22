@@ -1,0 +1,20 @@
+<p>question-list works!</p>
+
+<div *ngFor="let question of questions">
+    <h3>{{question.type}}</h3>
+    <div *ngIf="question.type == 'FITB1'">
+        <app-fitb1></app-fitb1>
+    </div>
+    <div *ngIf="question.type == 'FITB2'">
+        <app-fitb2></app-fitb2>
+    </div>
+    <div *ngIf="question.type == 'MAQ'">
+        <app-maq></app-maq>
+    </div>
+    <div *ngIf="question.type == 'MCQ'">
+        <app-mcq></app-mcq>
+    </div>
+    <div *ngIf="question.type == 'MTF'">
+        <app-mtf></app-mtf>
+    </div>
+</div>
