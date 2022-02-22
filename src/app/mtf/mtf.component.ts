@@ -1,6 +1,6 @@
 import { state } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { Question } from '../questions';
+import { QuestionSet } from '../questions';
 
 @Component({
   selector: 'app-mtf',
@@ -9,17 +9,17 @@ import { Question } from '../questions';
 })
 export class MtfComponent implements OnInit {
 
-  heading1: string = ""
-  heading2: string = ""
-  col1: string[] = []
-  col2: string[] = []
+  heading1 = ""
+  heading2 = ""
+  col1 = [""]
+  col2 = [""]
 
-  @Input() question!: Question;
+  @Input() questionSet!: QuestionSet;
   constructor() {
   }
 
   ngOnInit(): void {
-    let answer_options = this.question.answer_options;
+    let answer_options = this.questionSet.answer_options;
     let row = 0;
     for (let index in answer_options) {
       let cols: string[] = [];

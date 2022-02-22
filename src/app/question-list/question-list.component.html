@@ -1,24 +1,24 @@
-<div *ngFor="let question of questions">
-    <h3>{{question?.type}}</h3>
-    <div [ngSwitch]="question?.type">
+<div *ngFor="let questionSet of questionsSet">
+    <h3>{{questionSet?.type}}</h3>
+    <div [ngSwitch]="questionSet?.type">
         <div *ngSwitchCase="'FITB1'">
-            <app-fitb1 [question]="question">
+            <app-fitb1 [questionSet]="questionSet">
             </app-fitb1>
         </div>
         <div *ngSwitchCase="'FITB2'">
-            <app-fitb2 [question]="question"></app-fitb2>
+            <app-fitb2 [questionSet]="questionSet"></app-fitb2>
         </div>
         <div *ngSwitchCase="'MAQ'">
-            <app-maq [question]="question"></app-maq>
+            <app-maq [questionSet]="questionSet"></app-maq>
         </div>
         <div *ngSwitchCase="'MCQ'">
-            <app-mcq [question]="question"></app-mcq>
+            <app-mcq [questionSet]="questionSet"></app-mcq>
         </div>
         <div *ngSwitchCase="'MTF'">
-            <app-mtf [question]="question"></app-mtf>
+            <app-mtf [questionSet]="questionSet"></app-mtf>
         </div>
         <div *ngSwitchDefault>
-            There is no implementation for that type of question yet.
+            There is no implementation for that type of questionSet yet.
         </div>
     </div>
 </div>

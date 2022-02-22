@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Question } from '../questions';
+import { QuestionSet } from '../questions';
 
 @Component({
   selector: 'app-fitb1',
@@ -8,8 +8,14 @@ import { Question } from '../questions';
 })
 export class FITB1Component implements OnInit {
 
-  @Input() question!: Question;
-  constructor() { }
+  blanks = '____________'
+  question = ""
+  @Input() questionSet!: QuestionSet;
+  constructor() {
+    if (this.questionSet) {
+      this.question = this.questionSet.question.split('{}').join(this.blanks);
+    }
+  }
 
   ngOnInit(): void {
   }

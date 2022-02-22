@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Question } from '../questions';
+import { QuestionSet } from '../questions';
 
 @Component({
   selector: 'app-fitb2',
@@ -8,7 +8,7 @@ import { Question } from '../questions';
 })
 export class Fitb2Component implements OnInit {
 
-  @Input() question!: Question;
+  @Input() questionSet!: QuestionSet;
   constructor() { }
 
   ngOnInit(): void {

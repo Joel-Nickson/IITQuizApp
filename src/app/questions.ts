@@ -1,4 +1,4 @@
-export interface Question {
+export interface QuestionSet {
     question: string,
     type: string,
     time: number,
@@ -9,7 +9,7 @@ export interface Question {
     [key: string]: any
 }
 
-export const questions = [
+export const questionsSet = [
     {
         question: "India is {} largest country by population",
         type: "FITB1",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { questions } from '../questions';
+import { questionsSet } from '../questions';
 
 @Component({
   selector: 'app-question-list',
@@ -7,7 +7,7 @@ import { questions } from '../questions';
   styleUrls: ['./question-list.component.scss']
 })
 export class QuestionListComponent implements OnInit {
-  questions = questions;
+  questionsSet = questionsSet;
   constructor() { }
 
   ngOnInit(): void {
