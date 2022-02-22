@@ -1,31 +1,76 @@
 <div class="q-set" *ngFor="let questionSet of questionsSet; index as i">
-    <h3 class="q-head">
-        <span class="q-no">Q{{i+1}} </span>
-        <span class="q-type"> {{questionSet?.type}}</span>
-    </h3>
-    <div class="q-component" [ngSwitch]="questionSet?.type">
-        <div *ngSwitchCase="'FITB1'">
-            <div class="time">time : {{this.questionSet.time}}s</div>
-            <app-fitb1 [questionSet]="questionSet"></app-fitb1>
+    <label role="button" class="modal-open modal-open-{{i}} modal-label" for="modal-open-{{i}}">
+        <h3 class="q-head">
+            <span class="q-no">Q{{i+1}} </span>
+            <span class="q-type"> {{questionSet?.type}}</span>
+        </h3>
+
+        <div class="q-component" [ngSwitch]="questionSet?.type">
+            <div *ngSwitchCase="'FITB1'">
+                <div class="time">time : {{this.questionSet.time}}s</div>
+                <app-fitb1 [questionSet]="questionSet"></app-fitb1>
+            </div>
+            <div *ngSwitchCase="'FITB2'">
+                <div class="time">time : {{this.questionSet.time}}s</div>
+                <app-fitb2 [questionSet]="questionSet"></app-fitb2>
+            </div>
+            <div *ngSwitchCase="'MAQ'">
+                <div class="time">time : {{this.questionSet.time}}s</div>
+                <app-maq [questionSet]="questionSet"></app-maq>
+            </div>
+            <div *ngSwitchCase="'MCQ'">
+                <div class="time">time : {{this.questionSet.time}}s</div>
+                <app-mcq [questionSet]="questionSet"></app-mcq>
+            </div>
+            <div *ngSwitchCase="'MTF'">
+                <div class="time">time : {{this.questionSet.time}}s</div>
+                <app-mtf [questionSet]="questionSet"></app-mtf>
+            </div>
+            <div *ngSwitchDefault>
+                There is no implementation for that type of questionSet yet.
+            </div>
         </div>
-        <div *ngSwitchCase="'FITB2'">
-            <div class="time">time : {{this.questionSet.time}}s</div>
-            <app-fitb2 [questionSet]="questionSet"></app-fitb2>
-        </div>
-        <div *ngSwitchCase="'MAQ'">
-            <div class="time">time : {{this.questionSet.time}}s</div>
-            <app-maq [questionSet]="questionSet"></app-maq>
-        </div>
-        <div *ngSwitchCase="'MCQ'">
-            <div class="time">time : {{this.questionSet.time}}s</div>
-            <app-mcq [questionSet]="questionSet"></app-mcq>
-        </div>
-        <div *ngSwitchCase="'MTF'">
-            <div class="time">time : {{this.questionSet.time}}s</div>
-            <app-mtf [questionSet]="questionSet"></app-mtf>
-        </div>
-        <div *ngSwitchDefault>
-            There is no implementation for that type of questionSet yet.
+
+        <div class="q-open">open</div>
+    </label>
+
+    <input type="radio" name="modal" value="open" id="modal-open-{{i}}" class="modal-radio" />
+    <div class="modal">
+        <label class="modal-label overlay">
+            <input type="radio" name="modal" value="close" class="modal-radio" />
+        </label>
+        <div class="content">
+            <div class="top">
+                <h2>Q{{i+1}} </h2>
+                <label class="modal-label close-btn">
+                    <input type="radio" name="modal" value="close" class="modal-radio" />
+                </label>
+            </div>
+            <div class="q-component" [ngSwitch]="questionSet?.type">
+                <div *ngSwitchCase="'FITB1'">
+                    <div class="time">time : {{this.questionSet.time}}s</div>
+                    <app-fitb1 [questionSet]="questionSet"></app-fitb1>
+                </div>
+                <div *ngSwitchCase="'FITB2'">
+                    <div class="time">time : {{this.questionSet.time}}s</div>
+                    <app-fitb2 [questionSet]="questionSet"></app-fitb2>
+                </div>
+                <div *ngSwitchCase="'MAQ'">
+                    <div class="time">time : {{this.questionSet.time}}s</div>
+                    <app-maq [questionSet]="questionSet"></app-maq>
+                </div>
+                <div *ngSwitchCase="'MCQ'">
+                    <div class="time">time : {{this.questionSet.time}}s</div>
+                    <app-mcq [questionSet]="questionSet"></app-mcq>
+                </div>
+                <div *ngSwitchCase="'MTF'">
+                    <div class="time">time : {{this.questionSet.time}}s</div>
+                    <app-mtf [questionSet]="questionSet"></app-mtf>
+                </div>
+                <div *ngSwitchDefault>
+                    There is no implementation for that type of questionSet yet.
+                </div>
+            </div>
         </div>
     </div>
 </div>
