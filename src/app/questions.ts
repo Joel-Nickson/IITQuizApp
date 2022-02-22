@@ -82,6 +82,10 @@ export const questionsSet = [
 ];
 
 
+export function getFromCharCode(index: number) {
+    return String.fromCharCode(97 + index);
+}
+
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
