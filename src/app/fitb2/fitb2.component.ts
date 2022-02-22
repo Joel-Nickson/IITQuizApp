@@ -8,10 +8,15 @@ import { QuestionSet } from '../questions';
 })
 export class Fitb2Component implements OnInit {
 
+  blanks = '_________'
+  question = ""
   @Input() questionSet!: QuestionSet;
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    if (this.questionSet) {
+      this.question = this.questionSet.question.split('{}').join(this.blanks);
+    }
+  }
 }

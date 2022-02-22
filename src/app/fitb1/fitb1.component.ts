@@ -8,16 +8,16 @@ import { QuestionSet } from '../questions';
 })
 export class FITB1Component implements OnInit {
 
-  blanks = '____________'
+  blanks = '_________'
   question = ""
   @Input() questionSet!: QuestionSet;
   constructor() {
-    if (this.questionSet) {
-      this.question = this.questionSet.question.split('{}').join(this.blanks);
-    }
   }
 
   ngOnInit(): void {
+    if (this.questionSet) {
+      this.question = this.questionSet.question.split('{}').join(this.blanks);
+    }
   }
 
 }
