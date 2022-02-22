@@ -15,6 +15,7 @@ export class MtfComponent implements OnInit {
   col2 = [""]
   randcol1 = [""]
   randcol2 = [""]
+  getFromCharCode = getFromCharCode;
 
   @Input() questionSet!: QuestionSet;
   constructor() {

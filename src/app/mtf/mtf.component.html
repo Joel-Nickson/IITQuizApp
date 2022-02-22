@@ -4,16 +4,16 @@
     <div class="table-col table-col-1">
         <h4>{{heading1}}</h4>
         <hr>
-        <div class="col col-1" *ngFor="let item1 of randcol1">
-            <div>{{item1}}</div>
+        <div class="col col-1" *ngFor="let item1 of randcol1; index as i">
+            <div>{{getFromCharCode(i)}}. {{item1}}</div>
         </div>
     </div>
 
     <div class="table-col table-col-2">
         <h4>{{heading2}}</h4>
         <hr>
-        <div class="col col-2" *ngFor="let item of randcol2">
-            <div>{{item}}</div>
+        <div class="col col-2" *ngFor="let item of randcol2; index as i">
+            <div>{{getFromCharCode(i)}}. {{item}}</div>
         </div>
     </div>
 </div>
