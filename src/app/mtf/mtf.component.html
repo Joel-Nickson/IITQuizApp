@@ -1,6 +1,10 @@
 <!-- Match The Following -->
-<p>mtf works!</p>
+<div class="time">time : {{this.question.time}}</div>
+<div class="quest">question : {{this.question.question}}</div>
 
-<div>question : {{this.question.question}}</div>
-<div>answer_options : {{this.question.answer_options}}</div>
-<div>time : {{this.question.time}}</div>
+<ul class="col col-1" *ngFor="let item1 of col1">
+    <li>{{item1}}</li>
+</ul>
+<ul class="col col-2" *ngFor="let item of col2">
+    <li>{{item}}</li>
+</ul>
