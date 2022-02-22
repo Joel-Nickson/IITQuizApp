@@ -1,6 +1,6 @@
 import { state } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { QuestionSet } from '../questions';
+import { QuestionSet, getFromCharCode } from '../questions';
 
 @Component({
   selector: 'app-mtf',
@@ -13,12 +13,20 @@ export class MtfComponent implements OnInit {
   heading2 = ""
   col1 = [""]
   col2 = [""]
+  randcol1 = [""]
+  randcol2 = [""]
 
   @Input() questionSet!: QuestionSet;
   constructor() {
   }
 
   ngOnInit(): void {
+    this.jsonToArray();
+    this.randcol1 = this.randomizeArr(this.col1);
+    this.randcol2 = this.randomizeArr(this.col2);
+  }
+
+  jsonToArray() {
     let answer_options = this.questionSet.answer_options;
     let row = 0;
     for (let index in answer_options) {
@@ -32,7 +40,17 @@ export class MtfComponent implements OnInit {
         row++;
       }
     }
-    console.log(this.col1, this.col2)
   }
 
+  randomizeArr(array: any[]) {
+    let curId = array.length ?? 0;
+    while (0 !== curId) {
+      let randId = Math.floor(Math.random() * curId);
+      curId--;
+      let tmp = array[curId];
+      array[curId] = array[randId];
+      array[randId] = tmp;
+    }
+    return array;
+  }
 }

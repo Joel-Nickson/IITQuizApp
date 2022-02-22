@@ -1,17 +1,19 @@
 <!-- Match The Following -->
-<div class="time">time : {{this.questionSet.time}}</div>
-<div class="quest">question : {{this.questionSet.question}}</div>
+<div class="quest"> {{this.questionSet.question}}</div>
+<div class="table">
+    <div class="table-col table-col-1">
+        <h4>{{heading1}}</h4>
+        <hr>
+        <div class="col col-1" *ngFor="let item1 of randcol1">
+            <div>{{item1}}</div>
+        </div>
+    </div>
 
-<div class="table table-col-1">
-    <h3>{{heading1}}</h3>
-    <ul class="col col-1" *ngFor="let item1 of col1">
-        <li>{{item1}}</li>
-    </ul>
-</div>
-
-<div class="table table-col-2">
-    <h3>{{heading2}}</h3>
-    <ul class="col col-2" *ngFor="let item of col2">
-        <li>{{item}}</li>
-    </ul>
+    <div class="table-col table-col-2">
+        <h4>{{heading2}}</h4>
+        <hr>
+        <div class="col col-2" *ngFor="let item of randcol2">
+            <div>{{item}}</div>
+        </div>
+    </div>
 </div>

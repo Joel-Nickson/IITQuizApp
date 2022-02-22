@@ -1,0 +1,17 @@
+h4{
+    margin: 0 0 10px 6px;
+}
+hr{
+    border:0.2px solid black;
+}
+.table{
+    margin: 8px 0 0 8px ;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    column-gap: 15px;
+}
+.table-col{
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+}
