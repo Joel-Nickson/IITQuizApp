@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { questions } from '../questions';
+import { Component, Input, OnInit } from '@angular/core';
+import { Question } from '../questions';
 
 @Component({
   selector: 'app-fitb1',
   templateUrl: './fitb1.component.html',
   styleUrls: ['./fitb1.component.scss']
 })
-export class FITB1Component {
-  questions = questions;
+export class FITB1Component implements OnInit {
 
+  @Input() question!: Question;
   constructor() { }
 
+  ngOnInit(): void {
+  }
+
+  share() {
+    window.alert(this.question.question);
+  }
 }

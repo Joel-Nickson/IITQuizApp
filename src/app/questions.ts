@@ -1,10 +1,12 @@
-export interface Questions {
+export interface Question {
     question: string,
     type: string,
     time: number,
-    answers: [],
-    answer_choices: [],
-    answer_options: []
+    answers?: string[],
+    answer?: string,
+    // answer_choices: [],
+    // answer_options: [],
+    [key: string]: any
 }
 
 export const questions = [

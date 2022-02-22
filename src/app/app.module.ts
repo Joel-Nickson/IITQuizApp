@@ -16,8 +16,8 @@ import { MtfComponent } from './mtf/mtf.component';
   declarations: [
     AppComponent,
     // FileUploadComponent,
-    FITB1Component,
     QuestionListComponent,
+    FITB1Component,
     Fitb2Component,
     MaqComponent,
     McqComponent,

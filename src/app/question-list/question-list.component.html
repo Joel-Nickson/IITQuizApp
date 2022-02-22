@@ -1,20 +1,26 @@
 <p>question-list works!</p>
 
 <div *ngFor="let question of questions">
-    <h3>{{question.type}}</h3>
-    <div *ngIf="question.type == 'FITB1'">
-        <app-fitb1></app-fitb1>
-    </div>
-    <div *ngIf="question.type == 'FITB2'">
-        <app-fitb2></app-fitb2>
-    </div>
-    <div *ngIf="question.type == 'MAQ'">
-        <app-maq></app-maq>
-    </div>
-    <div *ngIf="question.type == 'MCQ'">
-        <app-mcq></app-mcq>
-    </div>
-    <div *ngIf="question.type == 'MTF'">
-        <app-mtf></app-mtf>
+    <h3>{{question?.type}}</h3>
+    <div [ngSwitch]="question?.type">
+        <div *ngSwitchCase="'FITB1'">
+            <app-fitb1 [question]="question">
+            </app-fitb1>
+        </div>
+        <div *ngSwitchCase="'FITB2'">
+            <app-fitb2></app-fitb2>
+        </div>
+        <div *ngSwitchCase="'MAQ'">
+            <app-maq></app-maq>
+        </div>
+        <div *ngSwitchCase="'MCQ'">
+            <app-mcq></app-mcq>
+        </div>
+        <div *ngSwitchCase="'MTF'">
+            <app-mtf></app-mtf>
+        </div>
+        <div *ngSwitchDefault>
+            There is no implementation for that type of question yet.
+        </div>
     </div>
 </div>
