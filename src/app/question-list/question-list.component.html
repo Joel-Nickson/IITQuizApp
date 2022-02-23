@@ -1,5 +1,5 @@
 <div class="q-set" *ngFor="let questionSet of questionsSet; index as i">
-    <label role="button" class="modal-open modal-open-{{i}} modal-label" for="modal-open-{{i}}">
+    <label class="modal-open modal-open-{{i}} modal-label" for="modal-open-{{i}}" (click)="move(i,'none')">
         <h3 class="q-head">
             <span class="q-no">Q{{i+1}} </span>
             <span class="q-type"> {{questionSet?.type}}</span>
@@ -35,7 +35,7 @@
     </label>
 
     <input type="radio" name="modal" value="open" id="modal-open-{{i}}" class="modal-radio" />
-    <div class="modal">
+    <div class=" modal">
         <label class="modal-label overlay">
             <input type="radio" name="modal" value="close" class="modal-radio" />
         </label>
@@ -70,6 +70,12 @@
                 <div *ngSwitchDefault>
                     There is no implementation for that type of questionSet yet.
                 </div>
+            </div>
+            <div class="nav-btn">
+                <button class="btn btn-primary" (click)="move(i,'left')">moveL</button>
+
+                <button class="btn btn-primary" (click)="move(i,'right')">moveR</button>
+
             </div>
         </div>
     </div>
