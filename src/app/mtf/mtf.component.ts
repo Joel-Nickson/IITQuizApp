@@ -23,7 +23,7 @@ export class MtfComponent implements OnInit {
 
   ngOnInit(): void {
     this.jsonToArray();
-    this.randcol1 = this.randomizeArr(this.col1);
+    // this.randcol1 = this.randomizeArr(this.col1);
     this.randcol2 = this.randomizeArr(this.col2);
   }
 

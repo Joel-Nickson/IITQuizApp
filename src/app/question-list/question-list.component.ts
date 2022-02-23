@@ -18,21 +18,19 @@ export class QuestionListComponent implements OnInit {
 
   move(i: number, key: string) {
     this.index = i;
-    if (key == 'right' || key == 'up') {
+    if (key == 'right') {
       if (i < questionsSet.length - 1) {
         document.getElementById(`modal-open-${++this.index}`)?.click();
         // document.getElementById(`modal-open-${i + 1}`)?.classList.add('.modal-clicked');
-        // console.log("clicked next element");
       }
     }
-    if (key == 'left' || key == 'down') {
+    if (key == 'left') {
       if (i > 0) {
         document.getElementById(`modal-open-${--this.index}`)?.click();
         // document.getElementById(`modal-open-${i + 1}`)?.classList.add('.modal-clicked');
-        // console.log("clicked prev element");
       }
     }
-    console.log(this.index);
+    // console.log(this.index);
   }
   // removeClass() {
   //   let modal = document.getElementById(`modal-open-${this.index}`)?.classList;
@@ -46,8 +44,8 @@ export class QuestionListComponent implements OnInit {
     switch (event.key) {
       case "ArrowRight": this.move(this.index, 'right'); break;
       case "ArrowLeft": this.move(this.index, 'left'); break;
-      case "ArrowUp": this.move(this.index, 'up'); break;
-      case "ArrowDown": this.move(this.index, 'down'); break;
+      case "ArrowUp": this.move(this.index, 'left'); break;
+      case "ArrowDown": this.move(this.index, 'right'); break;
     }
   }
 

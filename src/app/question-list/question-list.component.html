@@ -1,6 +1,6 @@
-<div class="q-set" *ngFor="let questionSet of questionsSet; index as i">
+<div class="q-set q-set-wblue" *ngFor="let questionSet of questionsSet; index as i">
     <label class="modal-open modal-open-{{i}} modal-label" for="modal-open-{{i}}" (click)="move(i,'none')">
-        <h3 class="q-head">
+        <h3 class="q-head q-head-wblue">
             <span class="q-no">Q{{i+1}} </span>
             <span class="q-type"> {{questionSet?.type}}</span>
         </h3>
@@ -40,20 +40,41 @@
             <input type="radio" name="modal" value="close" class="modal-radio" />
         </label>
         <div class="content">
-            <div class="top">
+            <div class="mod-sec modal-top">
                 <h2>Q{{i+1}} </h2>
                 <label class="modal-label close-btn">
                     <input type="radio" name="modal" value="close" class="modal-radio" />
                 </label>
             </div>
-            <div class="q-component" [ngSwitch]="questionSet?.type">
+            <div class="mod-sec q-component" [ngSwitch]="questionSet?.type">
                 <div *ngSwitchCase="'FITB1'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
                     <app-fitb1 [questionSet]="questionSet"></app-fitb1>
+                    <div class="q-ans">
+                        <input type="text" class="text" />
+
+                        <div class="q-btns">
+                            <button class="btn btn-skip">Skip</button>
+                            <button class="btn btn-mfr">MFR</button>
+                            <button class="btn btn-s-mfr">S&MFR</button>
+                            <button class="btn btn-sub">Submit</button>
+                        </div>
+                    </div>
                 </div>
                 <div *ngSwitchCase="'FITB2'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
                     <app-fitb2 [questionSet]="questionSet"></app-fitb2>
+                    <div class="q-ans">
+                        <div>
+                            <input type="text" class="text" />
+                        </div>
+                        <div class="q-btns">
+                            <button class="btn btn-skip">Skip</button>
+                            <button class="btn btn-mfr">MFR</button>
+                            <button class="btn btn-s-mfr">S&MFR</button>
+                            <button class="btn btn-sub">Submit</button>
+                        </div>
+                    </div>
                 </div>
                 <div *ngSwitchCase="'MAQ'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
@@ -71,12 +92,20 @@
                     There is no implementation for that type of questionSet yet.
                 </div>
             </div>
-            <div class="nav-btn">
+
+            <div class="mod-sec nav-btn">
                 <button class="btn btn-primary" (click)="move(i,'left')">moveL</button>
 
                 <button class="btn btn-primary" (click)="move(i,'right')">moveR</button>
-
             </div>
+        </div>
+        <div class="faq-container">
+            <ul class="faq">
+                <li class="q-faq-red">Skip - Mark as Not Done & and go to next question</li>
+                <li class="q-faq-yellow">MFR - Mark For Review</li>
+                <li class="q-faq-blue">S&MFR - Submit and Mark For Review</li>
+                <li class="q-faq-green">Submit - Submit Your Answer</li>
+            </ul>
         </div>
     </div>
 </div>
