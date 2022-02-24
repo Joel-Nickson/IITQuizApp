@@ -10,10 +10,6 @@ export class MtfComponent implements OnInit {
 
   heading1 = ""
   heading2 = ""
-  // col1 = [""]
-  // col2 = [""]
-  // randcol1 = [""]
-  // randcol2 = [""]
   MTFJsons: MTFJson[] = [];
   getFromCharCode = getFromCharCode;
 
@@ -25,8 +21,6 @@ export class MtfComponent implements OnInit {
 
   ngOnInit(): void {
     this.jsonToArray();
-    // this.randcol1 = this.randomizeArr(this.col1);
-    // this.randcol2 = this.randomizeArr(this.col2);
   }
 
   jsonToArray() {
@@ -44,30 +38,14 @@ export class MtfComponent implements OnInit {
       cols = JSON.stringify(answer_options[parseInt(index)]).split('"');
       MTFJson.left = cols[3]
       MTFJson.right = cols[7]
-      // this.col1[parseInt(index)] = cols[3];
-      // this.col2[parseInt(index)] = cols[7];
       if (row == 0) {
         this.heading1 = cols[1];
         this.heading2 = cols[5];
         row++;
       }
-      // console.log(MTFJson, this.col1, this.col2, cols);
-      // console.log(MTFJson, this.MTFJsons)
       this.MTFJsons.push(MTFJson);
     }
   }
-
-  // randomizeArr(array: any[]) {
-  //   let curId = array.length ?? 0;
-  //   while (0 !== curId) {
-  //     let randId = Math.floor(Math.random() * curId);
-  //     curId--;
-  //     let tmp = array[curId];
-  //     array[curId] = array[randId];
-  //     array[randId] = tmp;
-  //   }
-  //   return array;
-  // }
 }
 
 export interface MTFJson {
