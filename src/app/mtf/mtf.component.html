@@ -1,21 +1,35 @@
 <!-- Match The Following -->
 <div class="quest"> {{this.questionSet.question}}</div>
 <div class="table">
-    <div class="table-col table-col-1">
+    <div class="table-col table-left">
         <h4>{{heading1}}</h4>
         <hr>
-        <div class="col col-1" *ngFor="let item of MTFJsons; index as i">
-            <button class="btn" *ngIf="btn"> {{item.left}} </button>
-            <div *ngIf="!btn">{{getFromCharCode(i)}}. {{item.left}}</div>
+        <div class="col c-left" *ngFor="let item of unsolvedPairs; index as j">
+            <button id="t-c-l-{{ind}}-0{{j}}" (click)="choose('l',ind,j)" class="btn" *ngIf="btn"> {{item.left}}
+            </button>
+            <div *ngIf="!btn">{{getFromCharCode(j)}}. {{item.left}}</div>
         </div>
     </div>
 
-    <div class="table-col table-col-2">
+    <div class="table-col table-right">
         <h4>{{heading2}}</h4>
         <hr>
-        <div class="col col-2" *ngFor="let item of MTFJsons  | shuffle ; index as i">
-            <button class="btn" *ngIf="btn">{{item.right}}</button>
-            <div *ngIf="!btn">{{getFromCharCode(i)}}. {{item.right}}</div>
+        <div class="col c-right" *ngFor="let item of unsolvedPairs  | shuffle ; index as j">
+            <button id="t-c-r-{{ind}}-0{{item.id}}" (click)="choose('r',ind,item.id)" class="btn"
+                *ngIf="btn">{{item.right}}</button>
+            <div *ngIf="!btn">{{getFromCharCode(j)}}. {{item.right}}</div>
         </div>
+    </div>
+</div>
+<div *ngIf="btn">
+    <div class="table t-ans">
+        <div *ngFor="let pair of solvedPairs;index as j" class="pair" id="t-c-{{ind}}-1{{j}}">
+            <button>{{pair.left}}</button>
+            <div class="connector"></div>
+            <button>{{pair.right}}</button>
+        </div>
+    </div>
+    <div>
+        <div role="button" id="retry" class="retry" (click)="startAgain()">retry</div>
     </div>
 </div>

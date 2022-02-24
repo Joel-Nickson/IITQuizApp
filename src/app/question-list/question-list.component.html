@@ -1,6 +1,6 @@
 <div class="q-set q-set-wblue" *ngFor="let questionSet of questionsSet; index as i" id="q-s-{{i}}">
     <label class="modal-open modal-open-{{i}} modal-label" for="modal-open-{{i}}" (click)="move(i,'none')">
-        <h3 class="q-head q-head-wblue" id="q-h-{{i}}">
+        <h3 class="q-head q-bg-wblue" id="q-h-{{i}}">
             <span class="q-no">Q{{i+1}} </span>
             <span class="q-type"> {{questionSet?.type}}</span>
         </h3>
@@ -122,9 +122,12 @@
                 </div>
                 <div *ngSwitchCase="'MTF'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
-                    <app-mtf [questionSet]="questionSet" [btn]="true"></app-mtf>
+                    <app-mtf [questionSet]="questionSet" [btn]="true" [ind]="i"
+                        (leftpartSelected)="onLeftpartSelected($event)"
+                        (rightpartSelected)="onRightpartSelected($event)" (leftpartUnselected)="onLeftpartUnselected()"
+                        (rightpartUnselected)="onRightpartUnselected()"></app-mtf>
 
-                    <div class="q-ans">
+                    <div class=" q-ans">
                         <div class="chk-container">
 
                         </div>
@@ -149,10 +152,10 @@
         </div>
         <div class="faq-container">
             <ul class="faq">
-                <li class="q-faq-red">Skip - Mark as Not Done & and go to next question</li>
-                <li class="q-faq-yellow">MFR - Mark For Review</li>
-                <li class="q-faq-blue">S&MFR - Submit and Mark For Review</li>
-                <li class="q-faq-green">Submit - Submit Your Answer</li>
+                <li class="q-red">Skip - Mark as Not Done & and go to next question</li>
+                <li class="q-yellow">MFR - Mark For Review</li>
+                <li class="q-blue">S&MFR - Submit and Mark For Review</li>
+                <li class="q-green">Submit - Submit Your Answer</li>
             </ul>
         </div>
     </div>

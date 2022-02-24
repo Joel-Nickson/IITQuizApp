@@ -16,8 +16,24 @@ hr{
     padding: 10px;
 }
 .col{
+    height:fit-content;
     .btn{
         width: 100%;
         text-align: left;
     }
+}
+.none{
+    display: none;
+}
+.t-ans{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 15px;
+}
+#retry{
+    width: fit-content;
+    margin: auto;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: rgba(62, 65, 65, 0.562);
 }

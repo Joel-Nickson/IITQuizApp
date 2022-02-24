@@ -25,11 +25,11 @@ $iitWhiteBlue: rgb(109, 182, 182);
     justify-content: space-between;
     margin-top: 0px;
 }
-.q-head-wblue{background-color: $iitWhiteBlue;}
-.q-head-blue{background-color: $iitBlue;}
-.q-head-green{background-color: $iitGreen;}
-.q-head-red{background-color: $iitRed;}
-.q-head-yellow{background-color: $iitYellow;}
+.q-bg-wblue{background-color: $iitWhiteBlue;}
+.q-bg-blue{background-color: $iitBlue;}
+.q-bg-green{background-color: $iitGreen;}
+.q-bg-red{background-color: $iitRed;}
+.q-bg-yellow{background-color: $iitYellow;}
 .q-type{
     font-size: xx-small;
     padding-inline: 3px;
@@ -211,8 +211,8 @@ $iitWhiteBlue: rgb(109, 182, 182);
         margin: auto;
     }
 }
-.q-faq-wblue{color: $iitWhiteBlue;}
-.q-faq-blue{color: $iitBlue;}
-.q-faq-green{color: $iitGreen;}
-.q-faq-red{color: $iitRed;}
-.q-faq-yellow{color: $iitYellow;}
+.q-wblue{color: $iitWhiteBlue;}
+.q-blue{color: $iitBlue;}
+.q-green{color: $iitGreen;}
+.q-red{color: $iitRed;}
+.q-yellow{color: $iitYellow;}

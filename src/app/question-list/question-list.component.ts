@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { questionsSet } from '../questions';
 
 @Component({
@@ -7,6 +7,7 @@ import { questionsSet } from '../questions';
   styleUrls: ['./question-list.component.scss']
 })
 export class QuestionListComponent implements OnInit {
+
   questionsSet = questionsSet;
   answer_choice = questionsSet[0]?.answer_choices;
   answers = questionsSet[0]?.answers;
@@ -14,11 +15,19 @@ export class QuestionListComponent implements OnInit {
   index = -100;
   choice: string[] = [];
 
+  leftpartSelectedId = -1;
+  rightpartSelectedId = -1;
+
   // constructor() {
   // }
 
   ngOnInit(): void {
   }
+
+  onLeftpartSelected(id: number) { this.leftpartSelectedId = id; console.log('++added++' + id) }
+  onRightpartSelected(id: number) { this.rightpartSelectedId = id; console.log('++added++' + id) }
+  onLeftpartUnselected() { this.leftpartSelectedId = -1; console.log('--removed--' + this.leftpartSelectedId) }
+  onRightpartUnselected() { this.rightpartSelectedId = -1; console.log('--removed--' + this.rightpartSelectedId) }
 
   getAns() {
     this.answer_choice = this.questionsSet[this.index].answer_choices;
@@ -35,9 +44,8 @@ export class QuestionListComponent implements OnInit {
         document.getElementById(`modal-open-${this.index}`)?.click();
       }
       else {
-        console.log(i, "end of questions");
-
         document.getElementById('body')?.click();
+        alert("end of questions")
       }
     }
     if (key == 'left') {
@@ -72,7 +80,7 @@ export class QuestionListComponent implements OnInit {
     html_el = document.getElementById(`q-h-${i}`);
     html_el?.removeAttribute("class");
     html_el?.classList.add('q-head');
-    html_el?.classList.add('q-head-red')
+    html_el?.classList.add('q-bg-red')
 
     this.move(this.index, 'right');
   }
@@ -85,7 +93,7 @@ export class QuestionListComponent implements OnInit {
     html_el = document.getElementById(`q-h-${i}`);
     html_el?.removeAttribute("class");
     html_el?.classList.add('q-head');
-    html_el?.classList.add('q-head-yellow')
+    html_el?.classList.add('q-bg-yellow')
 
     this.move(this.index, 'right');
   }
@@ -99,7 +107,7 @@ export class QuestionListComponent implements OnInit {
     html_el = document.getElementById(`q-h-${i}`);
     html_el?.removeAttribute("class");
     html_el?.classList.add('q-head');
-    html_el?.classList.add('q-head-blue')
+    html_el?.classList.add('q-bg-blue')
 
     this.move(this.index, 'right');
   }
@@ -113,7 +121,7 @@ export class QuestionListComponent implements OnInit {
     html_el = document.getElementById(`q-h-${i}`);
     html_el?.removeAttribute("class");
     html_el?.classList.add('q-head');
-    html_el?.classList.add('q-head-green')
+    html_el?.classList.add('q-bg-green')
 
     this.move(this.index, 'right');
   }
