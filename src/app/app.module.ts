@@ -11,6 +11,8 @@ import { Fitb2Component } from './fitb2/fitb2.component';
 import { MaqComponent } from './maq/maq.component';
 import { McqComponent } from './mcq/mcq.component';
 import { MtfComponent } from './mtf/mtf.component';
+import { FormsModule } from '@angular/forms';
+import { ShufflePipe } from './shuffle.pipe';
 
 
 @NgModule({
@@ -23,10 +25,12 @@ import { MtfComponent } from './mtf/mtf.component';
     MaqComponent,
     McqComponent,
     MtfComponent,
+    ShufflePipe,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
