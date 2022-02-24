@@ -1,6 +1,6 @@
-<div class="q-set q-set-wblue" *ngFor="let questionSet of questionsSet; index as i">
+<div class="q-set q-set-wblue" *ngFor="let questionSet of questionsSet; index as i" id="q-s-{{i}}">
     <label class="modal-open modal-open-{{i}} modal-label" for="modal-open-{{i}}" (click)="move(i,'none')">
-        <h3 class="q-head q-head-wblue">
+        <h3 class="q-head q-head-wblue" id="q-h-{{i}}">
             <span class="q-no">Q{{i+1}} </span>
             <span class="q-type"> {{questionSet?.type}}</span>
         </h3>
@@ -51,13 +51,14 @@
                     <div class="time">time : {{this.questionSet.time}}s</div>
                     <app-fitb1 [questionSet]="questionSet"></app-fitb1>
                     <div class="q-ans">
-                        <input type="text" class="text" />
-
+                        <div>
+                            <input type="text" class="i-ans text" #ans />
+                        </div>
                         <div class="q-btns">
-                            <button class="btn btn-skip">Skip</button>
-                            <button class="btn btn-mfr">MFR</button>
-                            <button class="btn btn-s-mfr">S&MFR</button>
-                            <button class="btn btn-sub">Submit</button>
+                            <button (click)="skip(i)" class="btn btn-skip">Skip</button>
+                            <button (click)="mfr(i)" class="btn btn-mfr">MFR</button>
+                            <button (click)="smfr(i,ans.value)" class="btn btn-s-mfr">S&MFR</button>
+                            <button (click)="sub(i,ans.value)" class="btn btn-sub">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -66,27 +67,74 @@
                     <app-fitb2 [questionSet]="questionSet"></app-fitb2>
                     <div class="q-ans">
                         <div>
-                            <input type="text" class="text" />
+                            <input type="text" class="i-ans text" #ans1 />
+                        </div>
+                        <div>
+                            <input type="text" class="i-ans text" #ans2 />
                         </div>
                         <div class="q-btns">
-                            <button class="btn btn-skip">Skip</button>
-                            <button class="btn btn-mfr">MFR</button>
-                            <button class="btn btn-s-mfr">S&MFR</button>
-                            <button class="btn btn-sub">Submit</button>
+                            <button (click)="skip(i)" class="btn btn-skip">Skip</button>
+                            <button (click)="mfr(i)" class="btn btn-mfr">MFR</button>
+                            <button (click)="smfr(i,ans1.value,ans2.value)" class="btn btn-s-mfr">S&MFR</button>
+                            <button (click)="sub(i,ans1.value,ans2.value)" class="btn btn-sub">Submit</button>
                         </div>
                     </div>
                 </div>
                 <div *ngSwitchCase="'MAQ'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
                     <app-maq [questionSet]="questionSet"></app-maq>
+                    <div class="q-ans">
+                        <div class="chk-container">
+                            <div *ngFor="let a of answer_choice;index as j">
+                                <input type="checkbox" class="i-ans checkbox" id="chk-{{i}}-{{j}}"
+                                    name="chk-{{i}}-{{j}}" [(ngModel)]="choice[j]" (ngModelChange)="check(i,choice)"
+                                    value='{{a}}' />
+                                <label for="chk-{{i}}-{{j}}">{{a}}</label>
+                            </div>
+                        </div>
+                        <div class="q-btns">
+                            <button (click)="skip(i)" class="btn btn-skip">Skip</button>
+                            <button (click)="mfr(i)" class="btn btn-mfr">MFR</button>
+                            <button (click)="smfr(i)" class="btn btn-s-mfr">S&MFR</button>
+                            <button (click)="sub(i)" class="btn btn-sub">Submit</button>
+                        </div>
+                    </div>
                 </div>
                 <div *ngSwitchCase="'MCQ'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
                     <app-mcq [questionSet]="questionSet"></app-mcq>
+                    <div class="q-ans">
+                        <div class="chk-container">
+                            <div *ngFor="let a of answer_choice;index as j">
+                                <input type="checkbox" class="i-ans checkbox" id="chk-{{i}}-{{j}}"
+                                    name="chk-{{i}}-{{j}}" [(ngModel)]="choice[j]" (ngModelChange)="check(i,choice)"
+                                    value='{{a}}' />
+                                <label for="chk-{{i}}-{{j}}">{{a}}</label>
+                            </div>
+                        </div>
+                        <div class="q-btns">
+                            <button (click)="skip(i)" class="btn btn-skip">Skip</button>
+                            <button (click)="mfr(i)" class="btn btn-mfr">MFR</button>
+                            <button (click)="smfr(i)" class="btn btn-s-mfr">S&MFR</button>
+                            <button (click)="sub(i)" class="btn btn-sub">Submit</button>
+                        </div>
+                    </div>
                 </div>
                 <div *ngSwitchCase="'MTF'">
                     <div class="time">time : {{this.questionSet.time}}s</div>
-                    <app-mtf [questionSet]="questionSet"></app-mtf>
+                    <app-mtf [questionSet]="questionSet" [btn]="true"></app-mtf>
+
+                    <div class="q-ans">
+                        <div class="chk-container">
+
+                        </div>
+                        <div class="q-btns">
+                            <button (click)="skip(i)" class="btn btn-skip">Skip</button>
+                            <button (click)="mfr(i)" class="btn btn-mfr">MFR</button>
+                            <button (click)="smfr(i)" class="btn btn-s-mfr">S&MFR</button>
+                            <button (click)="sub(i)" class="btn btn-sub">Submit</button>
+                        </div>
+                    </div>
                 </div>
                 <div *ngSwitchDefault>
                     There is no implementation for that type of questionSet yet.
