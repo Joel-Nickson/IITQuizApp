@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-// import { FileUploadComponent } from './file-upload/file-upload.component';
 import { HttpClientModule } from
   '@angular/common/http';
 import { FITB1Component } from './fitb1/fitb1.component';
@@ -13,12 +12,17 @@ import { McqComponent } from './mcq/mcq.component';
 import { MtfComponent } from './mtf/mtf.component';
 import { FormsModule } from '@angular/forms';
 import { ShufflePipe } from './shuffle.pipe';
-
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FirebaseUIModule } from 'firebaseui-angular';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // FileUploadComponent,
+    FileUploadComponent,
     QuestionListComponent,
     FITB1Component,
     Fitb2Component,
@@ -30,9 +34,13 @@ import { ShufflePipe } from './shuffle.pipe';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(AuthService.firebaseUiAuthConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
